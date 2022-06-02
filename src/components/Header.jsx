@@ -2,29 +2,35 @@ import logo from "../assets/img/logo.png";
 import menu from "../assets/img/menu.png";
 import pizza from "../assets/img/pizza.png";
 import job from "../assets/img/job.png";
+import Ordering from "../components/Ordering";
+import Job from "../components/Job";
+import Menu from "../components/Menu";
+import CustomPizza from "../components/CustomPizza";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 function Header({ setMenuActive }) {
   return (
+    <BrowserRouter>
       <div className="header">
         <div className="header__logo">
-          <a to="/menu"> <img width="70" src={logo} alt="Tvilsom logo" /></a>
+          <Link to="/menu"> <img width="70" src={logo} alt="Tvilsom logo" /></Link>
         </div>
         <div className="header__ul">
           <div className="header__ul__li">
             <img width="40" src={menu} alt="Menu logo" />
-            <a to="/menu">Меню</a>
+            <Link to="/menu">Меню</Link>
           </div>
           <div className="header__ul__li">
             <img width="40" src={pizza} alt="Pizza logo" />
-            <a to="/customPizza">Собери свою пиццу!</a>
+            <Link to="/customPizza">Собери свою пиццу!</Link>
           </div>
           <div className="header__ul__li">
             <img width="40" src={job} alt="Job logo" />
-            <a to="/job">Вакансии</a>
+            <Link to="/job">Вакансии</Link>
           </div>
         </div>
         <div className="header__cart" onClick={(e) => { e.stopPropagation(); setMenuActive(true); }}>
-          <a to="/ordering" className="button button--cart">
+          <Link to="/ordering" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -57,9 +63,17 @@ function Header({ setMenuActive }) {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
+      <Routes>
+        <Route exact path="/" element={<Menu />} />
+        <Route exact path="/ordering" element={<Ordering />} />
+        <Route exact path="/menu" element={<Menu />} />
+        <Route exact path="/customPizza" element={<CustomPizza />} />
+        <Route exact path="/job" element={<Job />} />
+      </Routes>
+    </BrowserRouter>
 
   );
 }
