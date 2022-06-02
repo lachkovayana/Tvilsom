@@ -1,14 +1,23 @@
-
+import { useState } from "react";
+import CartPreview from "./components/CartPreview";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
 function App() {
+  const [menuActive, setMenuActive] = useState(false);
+  const [hasOrder, setHasOrder] = useState(false);
   return (
-    <div className="App wrapper" >
+    <div className="App wrapper" onClick={() => setMenuActive(false)}>
       <div className="container">
-        <Header />
+        <Header setMenuActive={setMenuActive} />
+        <div className={menuActive ? "blackout" : ""} />
+        <CartPreview menuActive={menuActive} setMenuActive={setMenuActive} hasOrder={hasOrder} />
+
+
       </div>
         <Footer />
     </div>
+
   );
 }
 
