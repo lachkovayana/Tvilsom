@@ -1,0 +1,52 @@
+.footer{
+    width: 100%;
+    min-height: 100px;
+    background-color: #F4F4F4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    
+    .social_media {
+        margin-right: 50px;
+
+        @media (max-width:655px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        img:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        img{
+            cursor: pointer;
+        }
+
+    }
+
+    .email{
+        margin-right: 50px;
+
+        @media (max-width:655px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .phone{
+
+        &__number{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        &__tip{
+            font-size: 12px;
+        }
+    }
+}
