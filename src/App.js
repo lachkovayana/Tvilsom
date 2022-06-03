@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
-  const [hasOrder, setHasOrder] = useState(false);
+  const [hasOrder, setHasOrder] = useState(true);
   return (
     <div className="App wrapper" onClick={() => setMenuActive(false)}>
       <div className="container">
@@ -15,7 +15,7 @@ function App() {
 
 
       </div>
-        <Footer />
+      <Footer />
     </div>
 
   );
