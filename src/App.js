@@ -12,8 +12,6 @@ function App() {
         <Header setMenuActive={setMenuActive} />
         <div className={menuActive ? "blackout" : ""} />
         <CartPreview menuActive={menuActive} setMenuActive={setMenuActive} hasOrder={hasOrder} />
-
-
       </div>
       <Footer />
     </div>
