@@ -2,7 +2,7 @@
 export default function VacanciesCard({info}) {
     return (
         <div className="card">
-            {/* <img src={info.imageUrl} alt="Vacancy"/> */}
+            <img src={"https://makelovepizza.ru/img/vacancy/C3sPfemXbxWb.png "} alt="Vacancy"/>
                 <div className="container">
                     <h4>{info.title}</h4>
                     <p>{info.description}</p>

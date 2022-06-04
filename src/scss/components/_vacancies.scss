@@ -1,24 +1,51 @@
+@mixin italic-font{
+    font-weight: 500;
+    font-style: italic;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.text {
+    @include italic-font;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+.linkContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.arrow_with_link{
+    display: flex;
+    align-items: center;
+
+    a {
+        @include italic-font;
+        margin-bottom: -10px;
+        margin-left: 10px;
+        color: $orange;
+        font-size: 26px;
+        cursor: pointer;
+
+    }
+}
+
 .cardList {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-
-    // & > * {
-    //     margin-right: 30px;
-    // }
-    // & > *:nth-child(3n+3)  {
-    //     margin-right:0 ;
-    // }
+    margin: 30px auto;
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 30%;
-   border-radius: 15px;
+    border-radius: 15px;
     margin: 0 15px 30px 15px;
-    // text-align: center;
 
     &:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -30,6 +57,8 @@
     .container{
         display: flex;
         flex-direction: column;
+        padding: 2px 16px;
+
         h4 {
             font-size: 24px;
             font-weight: 600;
@@ -40,12 +69,6 @@
 }
 
 @media (max-width: 1200px){
-    // .cardList > *  {
-    //     margin-right: 30px;
-    // }
-    // .cardList > *:nth-child(2n+2)  {
-    //     margin-right:0 ;
-    // }
     .card {
         width: 45%;
     }
@@ -53,14 +76,8 @@
 }
 
 @media (max-width: 900px){
-    // .cardList  > * {
-    //     margin-right: 0;
-    // }
     .card {
         width: 70%;
     }
 }
 
-.container {
-    padding: 2px 16px;
-}
