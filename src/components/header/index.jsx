@@ -3,7 +3,7 @@ import menu from "../../assets/img/menu.png";
 import pizza from "../../assets/img/pizza.png";
 import job from "../../assets/img/job.png";
 import Ordering from "../Ordering";
-import Job from "../Job";
+import Job from "../pages/Job";
 import Menu from "../Menu";
 import CustomPizza from "../CustomPizza";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
