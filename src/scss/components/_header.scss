@@ -42,8 +42,15 @@
       @media (max-width: 900px) {
         margin-top: 10px;
       }
-      a {
+
+      .link{
+        color: black;
         margin-left: 10px;
+        
+        &--active {
+          color: $orange;
+          margin-left: 10px;
+        }
       }
     }
   }

@@ -7,30 +7,31 @@ import Job from "../components/Job";
 import Menu from "../components/Menu";
 import CustomPizza from "../components/CustomPizza";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 function Header({ setMenuActive }) {
   return (
     <BrowserRouter>
       <div className="header">
         <div className="header__logo">
-          <Link to="/menu"> <img width="70" src={logo} alt="Tvilsom logo" /></Link>
+          <NavLink to="/menu"> <img width="70" src={logo} alt="Tvilsom logo" /></NavLink>
         </div>
         <div className="header__ul">
           <div className="header__ul__li">
             <img width="40" src={menu} alt="Menu logo" />
-            <Link to="/menu">Меню</Link>
+            <NavLink to="/menu" className={({ isActive }) => (isActive ? "link--active" : "link")}>Меню</NavLink>
           </div>
           <div className="header__ul__li">
             <img width="40" src={pizza} alt="Pizza logo" />
-            <Link to="/customPizza">Собери свою пиццу!</Link>
+            <NavLink to="/customPizza" className={({ isActive }) => (isActive ? "link--active" : "link")}>Собери свою пиццу!</NavLink>
           </div>
           <div className="header__ul__li">
             <img width="40" src={job} alt="Job logo" />
-            <Link to="/job">Вакансии</Link>
+            <NavLink to="/job" className={({ isActive }) => (isActive ? "link--active" : "link")}>Вакансии</NavLink>
           </div>
         </div>
         <div className="header__cart" onClick={(e) => { e.stopPropagation(); setMenuActive(true); }}>
-          <Link to="/ordering" className="button button--cart">
+          <NavLink to="/ordering" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -63,7 +64,7 @@ function Header({ setMenuActive }) {
               />
             </svg>
             <span>3</span>
-          </Link>
+          </NavLink>
         </div>
       </div>
       <Routes>
