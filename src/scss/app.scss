@@ -10,11 +10,13 @@ body {
 
 .wrapper {
   width: calc(100vw - 100px);
+  min-height: calc(100vh - 100px);
   background-color: #fff;
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
-  
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
@@ -39,7 +41,7 @@ body {
 
 .container {
   width: $container-width;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   margin: 0 auto;
 
   &--cart {
