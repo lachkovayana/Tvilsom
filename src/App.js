@@ -1,7 +1,7 @@
 import { useState } from "react";
-import CartPreview from "./components/CartPreview";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import CartPreview from "./components/cartPreview";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);

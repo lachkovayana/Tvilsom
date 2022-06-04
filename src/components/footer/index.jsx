@@ -1,6 +1,6 @@
-import inst from "../assets/img/instagram.png"
-import vk from "../assets/img/vk.png"
-import telegram from "../assets/img/telegram.png"
+import inst from "../../assets/img/instagram.png"
+import vk from "../../assets/img/vk.png"
+import telegram from "../../assets/img/telegram.png"
 
 export default function Footer() {
     return (

@@ -1,11 +1,11 @@
-import logo from "../assets/img/logo.png";
-import menu from "../assets/img/menu.png";
-import pizza from "../assets/img/pizza.png";
-import job from "../assets/img/job.png";
-import Ordering from "../components/Ordering";
-import Job from "../components/Job";
-import Menu from "../components/Menu";
-import CustomPizza from "../components/CustomPizza";
+import logo from "../../assets/img/logo.png";
+import menu from "../../assets/img/menu.png";
+import pizza from "../../assets/img/pizza.png";
+import job from "../../assets/img/job.png";
+import Ordering from "../Ordering";
+import Job from "../Job";
+import Menu from "../Menu";
+import CustomPizza from "../CustomPizza";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { NavLink } from "react-router-dom";
 
