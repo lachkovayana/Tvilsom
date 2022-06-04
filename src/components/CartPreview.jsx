@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import close from "../assets/img/closeW.png"
 import testimg from "../assets/img/logo.png"
@@ -29,11 +30,12 @@ function renderOrder( setMenuActive, hasOrder) {
                 </div>
 
                 <div className="button button_order">
-                    <Link to="/cart" onClick={() => { setMenuActive(false); console.log("false") }}>
+                    <NavLink to="/ordering" 
+                    onClick={() => { setMenuActive(false); console.log("false") }}>
                         <span>
                             Оформить заказ
                         </span>
-                    </Link>
+                    </NavLink>
                 </div>
             </>
         )
