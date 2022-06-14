@@ -2,6 +2,7 @@ import VacancyCard from "../job/VacancyCard";
 import arrow from "../../assets/img/arrow.png";
 import { useState } from "react";
 import { useEffect } from "react";
+import VacancySkeleton from "../job/VacancySkeleton";
 
 export default function Job() {
     const [items, setItems] = useState([])
@@ -18,6 +19,7 @@ export default function Job() {
             <div className="cardList">
                 {items.map((obj)=> (
                     <VacancyCard info={obj} />
+                    // <VacancySkeleton info={obj} />
                 ))}
             </div>
             <div className="linkContainer">
