@@ -1,8 +1,10 @@
 
 export default function VacanciesCard({info}) {
+    console.log(info)
+    
     return (
         <div className="card">
-            <img src={"https://makelovepizza.ru/img/vacancy/C3sPfemXbxWb.png "} alt="Vacancy"/>
+            <img src={info.imageUrl} alt="Vacancy"/>
                 <div className="container">
                     <h4>{info.title}</h4>
                     <p>{info.description}</p>
