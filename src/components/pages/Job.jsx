@@ -9,6 +9,8 @@ export default function Job() {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        console.log("FIRST")
+
         fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Vacancies')
             .then(res => res.json())
             .then(arr => {
