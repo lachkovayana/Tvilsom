@@ -28,7 +28,7 @@ export default function Job() {
                     )
                     :
                     items.map(obj =>
-                        <VacancyCard info={obj} />
+                        <VacancyCard info={obj} key={obj.id} />
                     )}
             </div>
             <div className="linkContainer">

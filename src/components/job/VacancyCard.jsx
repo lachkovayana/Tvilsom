@@ -1,6 +1,5 @@
 
 export default function VacanciesCard({info}) {
-    console.log(info)
     
     return (
         <div className="card">
