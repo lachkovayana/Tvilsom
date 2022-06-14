@@ -6,21 +6,30 @@ import VacancySkeleton from "../job/VacancySkeleton";
 
 export default function Job() {
     const [items, setItems] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Vacancies')
-        .then(res => res.json())
-        .then(arr => setItems(arr))
+            .then(res => res.json())
+            .then(arr => {
+                setItems(arr);
+                setIsLoading(false);
+            })
+
     }, [])
 
     return (
         <div>
             <p className="text">Стань частью нашей команды!</p>
             <div className="cardList">
-                {items.map((obj)=> (
-                    <VacancyCard info={obj} />
-                    // <VacancySkeleton info={obj} />
-                ))}
+                {isLoading ?
+                    [...new Array(3)].map(() =>
+                        <VacancySkeleton />
+                    )
+                    :
+                    items.map(obj =>
+                        <VacancyCard info={obj} />
+                    )}
             </div>
             <div className="linkContainer">
                 <p className="text">Заполняй анкету по ссылке</p>
