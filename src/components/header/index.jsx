@@ -2,10 +2,9 @@ import logo from "../../assets/img/logo.png";
 import menu from "../../assets/img/menu.png";
 import pizza from "../../assets/img/pizza.png";
 import job from "../../assets/img/job.png";
-import Ordering from "../Ordering";
 import Job from "../pages/Job";
 import Menu from "../Menu";
-import CustomPizza from "../CustomPizza";
+import CustomPizza from "../pages/CustomPizza";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { NavLink } from "react-router-dom";
 
@@ -31,7 +30,7 @@ function Header({ setMenuActive }) {
           </div>
         </div>
         <div className="header__cart" onClick={(e) => { e.stopPropagation(); setMenuActive(true); }}>
-          <NavLink to="/ordering" className="button button--cart">
+          <div className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -64,12 +63,11 @@ function Header({ setMenuActive }) {
               />
             </svg>
             <span>3</span>
-          </NavLink>
+          </div>
         </div>
       </div>
       <Routes>
         <Route exact path="/" element={<Menu />} />
-        <Route exact path="/ordering" element={<Ordering />} />
         <Route exact path="/menu" element={<Menu />} />
         <Route exact path="/customPizza" element={<CustomPizza />} />
         <Route exact path="/job" element={<Job />} />
