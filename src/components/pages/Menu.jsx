@@ -1,7 +1,9 @@
+import ProductBlock from "../ProductBlock"
 export default function Menu(){
     return (
         <div>
-            menu
+            jjj
+            <ProductBlock />
         </div>
     )
 }
