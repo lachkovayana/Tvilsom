@@ -8,8 +8,7 @@ import { useEffect } from "react"
 import { useSelector } from "react-redux"
 
 export default function Menu() {
-    // const [activeIndex, setActiveIndex] = useState(0)
-    const [category, setCategory] = useState({ "id": 0, "name": "", "products": [] })
+    const [category, setCategory] = useState({ "id": 0, "title": "", "products": [] })
 
     const categoryId = useSelector(state => state.filter.categoryId)
 

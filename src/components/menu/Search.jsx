@@ -67,7 +67,7 @@ const Search = () => {
                 ref={inputRef}
                 onChange={onChangeInput}
                 className="input"
-                placeholder="Поиск пиццы..."
+                placeholder="Поиск товара..."
             />
             <svg
                 className="clearIcon"
