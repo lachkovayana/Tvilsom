@@ -5,24 +5,26 @@ import Categories from "../menu/Categories"
 import Search from "../menu/Search"
 import Sort from "../menu/Sort"
 import { useEffect } from "react"
+import { useSelector } from "react-redux"
 
 export default function Menu() {
-    const [activeIndex, setActiveIndex] = useState(0)
+    // const [activeIndex, setActiveIndex] = useState(0)
     const [category, setCategory] = useState({ "id": 0, "name": "", "products": [] })
-  
+
+    const categoryId = useSelector(state => state.filter.categoryId)
+
+
     useEffect(() => {
-        fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Product?id=' + activeIndex)
+        fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Product?id=' + categoryId)
             .then(res => res.json())
             .then(arr => {
-                console.log(arr[0].products)
                 setCategory(arr[0]);
             })
 
-    }, [activeIndex])
-
+    }, [categoryId])
     return (
         <>
-            <Categories activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+            <Categories activeIndex={categoryId}/>
             <div className="section_header">
                 <p>{category.title}</p>
                 <Search />
@@ -30,8 +32,8 @@ export default function Menu() {
             </div>
             <div className="product_wrapper">
                 <div className="products_list">
-                    {category.products.map((elem) =>
-                        <ProductBlock activeIndex={activeIndex} info={elem} />
+                    {category.products.map((elem, i) =>
+                        <ProductBlock activeIndex={categoryId} info={elem} key={i} />
                     )}
                 </div>
             </div>
