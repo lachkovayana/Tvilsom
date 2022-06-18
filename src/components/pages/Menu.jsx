@@ -1,4 +1,3 @@
-
 import { useState } from "react"
 import ProductBlock from "../menu/ProductBlock"
 import Categories from "../menu/Categories"
@@ -11,19 +10,34 @@ export default function Menu() {
     const [category, setCategory] = useState({ "id": 0, "title": "", "products": [] })
 
     const categoryId = useSelector(state => state.filter.categoryId)
+    const sort = useSelector(state => state.filter.sort)
 
+    function sortProducts(arr) {
+        switch (sort.sortProperty) {
+            case 'rating':
+                return arr.sort((a, b) => a.rating > b.rating ? 1 : -1)
+            case 'name':
+                return arr.sort((a, b) => a.name > b.name ? 1 : -1)
+            case 'price':
+                return arr.sort((a, b) => a.price > b.price ? 1 : -1)
+        }
+        return arr;
+    }
 
     useEffect(() => {
-        fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Product?id=' + categoryId)
+        fetch(`https://62938c037aa3e6af1a0d29ac.mockapi.io/Product?id=${categoryId}`)
             .then(res => res.json())
             .then(arr => {
-                setCategory(arr[0]);
+                var sortedProducts = sortProducts(arr[0].products);
+                var result = arr[0];
+                result.products = sortedProducts;
+                setCategory(result);
             })
 
-    }, [categoryId])
+    }, [categoryId, sort])
     return (
         <>
-            <Categories activeIndex={categoryId}/>
+            <Categories activeIndex={categoryId} />
             <div className="section_header">
                 <p>{category.title}</p>
                 <Search />
@@ -31,9 +45,11 @@ export default function Menu() {
             </div>
             <div className="product_wrapper">
                 <div className="products_list">
-                    {category.products.map((elem, i) =>
-                        <ProductBlock activeIndex={categoryId} info={elem} key={i} />
-                    )}
+                    {category.products
+                        .map((elem, i) =>
+                            <ProductBlock activeIndex={categoryId} info={elem} key={i} />
+                        )
+                    }
                 </div>
             </div>
         </>

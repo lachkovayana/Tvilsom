@@ -37,7 +37,7 @@ const ProductBlock = ({ activeIndex, info }) => {
 
                 <div className="price_and_button">
                     <p className="product_price">
-                        <span className="price">169 </span>
+                        <span className="price">{info.price} </span>
                         <span className="valute">₽</span>
                     </p>
                     <div className="button" >
