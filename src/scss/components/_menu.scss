@@ -1,3 +1,5 @@
+@import '../variables';
+
 @mixin child_position_center {
     display: flex;
     // justify-content: center;
@@ -48,7 +50,6 @@
 }
 .products_list{
     margin: 0 auto;
-    width: 1200px;
     flex-wrap: wrap;
     display: flex;
     // justify-content: space-around;
@@ -106,7 +107,7 @@
     padding: 5px ;
     background-color: $gray-light;
     border-radius: 10px;
-    margin: 5px auto;
+    margin: 10px auto;
     & > ul:not(:last-child){
         margin-bottom: 5px;
     }
