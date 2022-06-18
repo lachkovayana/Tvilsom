@@ -3,7 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import close from "../../assets/img/closeW.png"
 import testimg from "../../assets/img/logo.png"
 import noOrder from "../../assets/img/noOrder.png"
-import Ordering from "../Ordering";
+import Ordering from "../pages/Ordering";
 
 function renderOrder( setMenuActive, hasOrder) {
     if (hasOrder) {
