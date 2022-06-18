@@ -6,6 +6,14 @@
     align-items: center;
 }
 
+.section_header{
+    display: flex;
+    justify-content: space-between;
+
+    & > p{
+        font-weight: 600
+    }
+}
 
 .menu_units{
     @include child_position_center;
