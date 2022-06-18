@@ -1,4 +1,4 @@
-import foodEx from "../assets/img/food/darkDodster.png"
+import foodEx from "../../assets/img/food/darkDodster.png"
 
 const ProductBlock = ({activeIndex}) => {
     return (
