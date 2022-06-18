@@ -1,8 +1,8 @@
-import VacancyCard from "../job/VacancyCard";
+import VacancyCard from "../vacancyCard";
+import Skeleton from "../vacancyCard/skeleton";
 import arrow from "../../assets/img/arrow.png";
 import { useState } from "react";
 import { useEffect } from "react";
-import VacancySkeleton from "../job/VacancySkeleton";
 
 export default function Job() {
     const [items, setItems] = useState([])
@@ -26,7 +26,7 @@ export default function Job() {
             <div className="cardList">
                 {isLoading ?
                     [...new Array(3)].map(() =>
-                        <VacancySkeleton />
+                        <Skeleton />
                     )
                     :
                     items.map(obj =>

@@ -7,12 +7,17 @@ import Sort from "../menu/Sort"
 
 export default function Menu() {
     const [activeIndex, setActiveIndex] = useState(0)
+    const categories = [
+        { name: "Пицца", index: 0 },
+        { name: "Напитки", index: 1 },
+        { name: "Десерты", index: 2 },
+        { name: "Веган", index: 3 }]
 
     return (
         <>
-            <Categories activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+            <Categories activeIndex={activeIndex} setActiveIndex={setActiveIndex} categories={categories} />
             <div className="section_header">
-                <p>{activeIndex}</p>
+                <p>{categories.filter((obj) => obj.index == activeIndex)[0].name}</p>
                 <Search />
                 <Sort />
             </div>
@@ -23,6 +28,6 @@ export default function Menu() {
                     )}
                 </div>
             </div>
-        </> 
+        </>
     )
 }

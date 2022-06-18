@@ -1,5 +1,5 @@
 
-export default function VacanciesCard({info}) {
+export default function VacancyCard({info}) {
     
     return (
         <div className="card">
