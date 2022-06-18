@@ -4,14 +4,26 @@ import ProductBlock from "../menu/ProductBlock"
 import Categories from "../menu/Categories"
 import Search from "../menu/Search"
 import Sort from "../menu/Sort"
+import { useEffect } from "react"
 
 export default function Menu() {
     const [activeIndex, setActiveIndex] = useState(0)
+    const [items, setItems] = useState([])
     const categories = [
         { name: "Пицца", index: 0 },
         { name: "Напитки", index: 1 },
         { name: "Десерты", index: 2 },
         { name: "Веган", index: 3 }]
+
+    useEffect(() => {
+        fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Product?id=' + activeIndex)
+            .then(res => res.json())
+            .then(arr => {
+                console.log(arr)
+                setItems(arr[0].products);
+            })
+
+    }, [activeIndex])
 
     return (
         <>
@@ -23,8 +35,8 @@ export default function Menu() {
             </div>
             <div className="product_wrapper">
                 <div className="products_list">
-                    {[...new Array(5)].map(() =>
-                        <ProductBlock activeIndex={activeIndex} />
+                    {items.map((elem) =>
+                        <ProductBlock activeIndex={activeIndex} info={elem}/>
                     )}
                 </div>
             </div>

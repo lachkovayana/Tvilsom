@@ -1,26 +1,37 @@
-import foodEx from "../../assets/img/food/darkDodster.png"
+import { useState } from "react";
 
-const ProductBlock = ({activeIndex}) => {
+const ProductBlock = ({ activeIndex, info }) => {
+    const [activeSize, setActiveSize] = useState(0)
+    const [activeWeight, setActiveWeight] = useState(0)
+
     return (
         <li className="product">
-            <img src={foodEx} alt="example" className="product_image" />
-            <p className="product_title">Темный Додстер</p>
-            <p className="product_description">Горячая закуска по новому:
-                колбаски чоризо, соус бургер,
-                цыпленок, томаты, моцарелла в
-                черной пшеничной лепешке</p>
+            <div>
+                <img src={info.imageUrl} alt="example" className="product_image" />
+                <p className="product_title">{info.name}</p>
+                <p className="product_description">{info.description}</p>
+            </div>
             <div className={activeIndex == 0 ? "size_choice" : "hidden"}>
                 <ul>
-                    <li className="item item--active">q</li>
-                    <li className="item">s</li>
+                    {info.sizes.map((size, i) =>
+                        <li
+                            className={i == activeSize ? "item item--active" : "item"}
+                            onClick={() => setActiveSize(i)}
+                        >{size}</li>
+                    )}
                 </ul>
-                <ul className="size_choice_list">
-                    <li className="item">aa</li>
-                    <li className="item">bb</li>
-                    <li className="item item--active">bb</li>
+                <ul>
+                    <li
+                        className={activeWeight == 0 ? "item item--active" : "item"}
+                        onClick={() => setActiveWeight(0)}
+                    >Тонкое</li>
+                    <li
+                        className={activeWeight == 1 ? "item item--active" : "item"}
+                        onClick={() => setActiveWeight(1)}
+                    >Толстое</li>
                 </ul>
             </div>
-           
+
 
             <div className="price_and_button">
                 <p className="product_price">
