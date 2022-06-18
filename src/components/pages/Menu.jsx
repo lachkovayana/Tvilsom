@@ -8,35 +8,30 @@ import { useEffect } from "react"
 
 export default function Menu() {
     const [activeIndex, setActiveIndex] = useState(0)
-    const [items, setItems] = useState([])
-    const categories = [
-        { name: "Пицца", index: 0 },
-        { name: "Напитки", index: 1 },
-        { name: "Десерты", index: 2 },
-        { name: "Веган", index: 3 }]
-
+    const [category, setCategory] = useState({ "id": 0, "name": "", "products": [] })
+  
     useEffect(() => {
         fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Product?id=' + activeIndex)
             .then(res => res.json())
             .then(arr => {
-                console.log(arr)
-                setItems(arr[0].products);
+                console.log(arr[0].products)
+                setCategory(arr[0]);
             })
 
     }, [activeIndex])
 
     return (
         <>
-            <Categories activeIndex={activeIndex} setActiveIndex={setActiveIndex} categories={categories} />
+            <Categories activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
             <div className="section_header">
-                <p>{categories.filter((obj) => obj.index == activeIndex)[0].name}</p>
+                <p>{category.title}</p>
                 <Search />
                 <Sort />
             </div>
             <div className="product_wrapper">
                 <div className="products_list">
-                    {items.map((elem) =>
-                        <ProductBlock activeIndex={activeIndex} info={elem}/>
+                    {category.products.map((elem) =>
+                        <ProductBlock activeIndex={activeIndex} info={elem} />
                     )}
                 </div>
             </div>

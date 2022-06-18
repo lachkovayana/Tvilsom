@@ -2,31 +2,28 @@ import pizza from "../../assets/img/food_units/pizza.svg"
 import drinks from "../../assets/img/food_units/drinks.svg"
 import des from "../../assets/img/food_units/des.svg"
 import vegan from "../../assets/img/food_units/vegan.svg"
+import { useState } from "react"
+import { useEffect } from "react"
 
-const Categories = ({ activeIndex, setActiveIndex, categories }) => {
-   
+const Categories = ({ activeIndex, setActiveIndex }) => {
+    const [categories, setCategories] = useState([])
+    useEffect(() => {
+        fetch('https://62938c037aa3e6af1a0d29ac.mockapi.io/Product')
+            .then(res => res.json())
+            .then(arr => {
+                setCategories(arr)
+            })
+    })
+
     return (
         <div className="menu_units">
-            <div className={activeIndex == 0 ? "item item--active" : "item"}
-                onClick={() => { setActiveIndex(0) }}>
-                <img src={pizza} alt="pizza" />
-                <p>{categories.filter((obj) => obj.index == 0)[0].name}</p>
-            </div>
-            <div className={activeIndex == 1 ? "item item--active" : "item"}
-                onClick={() => { setActiveIndex(1) }}>
-                <img src={drinks} alt="drinks" />
-                <p>{categories.filter((obj) => obj.index == 1)[0].name}</p>
-            </div>
-            <div className={activeIndex == 2 ? "item item--active" : "item"}
-                onClick={() => { setActiveIndex(2) }}>
-                <img src={des} alt="desserts" />
-                <p>{categories.filter((obj) => obj.index == 2)[0].name}</p>
-            </div>
-            <div className={activeIndex == 3 ? "item item--active" : "item"}
-                onClick={() => { setActiveIndex(3) }}>
-                <img src={vegan} alt="vegan" />
-                <p>{categories.filter((obj) => obj.index == 3)[0].name}</p>
-            </div>
+            {categories.map((obj, i) =>
+                <div className={activeIndex == i ? "item item--active" : "item"}
+                    onClick={() => { setActiveIndex(i) }}>
+                    <img src={obj.imageUrl}  />
+                    <p>{obj.title}</p>
+                </div>
+            )}
         </div>
     )
 }
